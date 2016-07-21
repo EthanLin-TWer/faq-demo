@@ -1,0 +1,27 @@
+{
+  "name": "faq-demo",
+  "version": "0.0.1",
+  "description": "Demo implementing a single faq page with data fetched from backend json provider.",
+  "main": "app/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linesh-simplicity/faq-demo.git"
+  },
+  "keywords": [
+    "faq",
+    "spring",
+    "boot",
+    "json",
+    "angular",
+    "demo"
+  ],
+  "author": "Linesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linesh-simplicity/faq-demo/issues"
+  },
+  "homepage": "https://github.com/linesh-simplicity/faq-demo#readme"
+}
