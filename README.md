@@ -6,10 +6,10 @@ Demo implementing a single faq page with data fetched from backend json provider
 
 * [x] Angular 1.5.LATEST
 * [x] Npm
-* [ ] Grunt
+* [x] Grunt
 * [ ] Bootstrap
-* [ ] ES6
-* [ ] Babel
+* [x] ES6
+* [x] Babel
 * [ ] LESS
 * [ ] Mocha
 * [ ] Chai
