@@ -13,7 +13,9 @@ Demo implementing a single faq page with data fetched from backend json provider
 * [ ] LESS
 * [ ] Mocha
 * [ ] Chai
-* [ ] Spring Boot
+* [x] Spring Boot
+* [x] Junit
+* [x] Mockito
 * [x] Gradle
 * [ ] Travis
 
