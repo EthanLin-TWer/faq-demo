@@ -4,7 +4,7 @@ Demo implementing a single faq page with data fetched from backend json provider
 
 ## Tech Stack of v1.0
 
-* [ ] Angular 1.5.LATEST
+* [x] Angular 1.5.LATEST
 * [x] Npm
 * [ ] Grunt
 * [ ] Bootstrap
