@@ -18,10 +18,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec',
+                    require: ['babel-register']
+                },
+                src: ['app/test/unit/**/*.spec.js']
+            }
+        },
         watch: {
             javascript: {
                 files: ['app/**/*.js'],
-                tasks: ['babel']
+                tasks: ['babel', 'mochaTest']
             },
             less: {
                 files: ['app/**/*.less'],
@@ -33,6 +42,8 @@ module.exports = function(grunt) {
     require("load-grunt-tasks")(grunt);
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask("default", ["babel", "less", "watch"]);
+    grunt.registerTask("test", ["babel", "mochaTest", "watch"]);
 }

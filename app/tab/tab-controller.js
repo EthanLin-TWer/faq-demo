@@ -1,4 +1,6 @@
-angular.module('FAQApp', [])
-    .controller('tabController', ['', function($scope) {
-        $scope.first = 'Angular up and running!'
-    }]);
+export default class TabController {
+    constructor () {
+        this.first = 'Angular up and running!!!'
+    }
+
+}
