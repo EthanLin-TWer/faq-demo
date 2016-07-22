@@ -18,6 +18,13 @@ module.exports = function(grunt) {
                 }
             }
         },
+        ngAnnotate: {
+            angular: {
+                files: {
+                    'app/tab/tab-controller.js': ['app/tab/tab-controller.js']
+                }
+            }
+        },
         less: {
             development: {
                 files: {
@@ -51,7 +58,7 @@ module.exports = function(grunt) {
         watch: {
             javascript: {
                 files: ['app/**/*.js'],
-                tasks: ['babel', 'mochaTest']
+                tasks: ['browserify', 'mochaTest']
             },
             less: {
                 files: ['app/**/*.less'],
@@ -73,12 +80,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks("grunt-browserify");
+    grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask("default", ["build"]);
-    grunt.registerTask("build", ["clean", "browserify:dist", "less", "copy:dist"]);
+    grunt.registerTask("build", ["clean", "ngAnnotate:angular", "browserify:dist", "less", "copy:dist"]);
     grunt.registerTask("test", ["mochaTest", "watch"]);
     grunt.registerTask("serve", ["build", "connect:server", "watch"]);
 }
