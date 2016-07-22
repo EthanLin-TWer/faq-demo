@@ -1,13 +1,20 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        babel: {
-            options: {
-                sourceMap: true
-            },
+        clean: {
+            build: {
+                src: ['dist/*']
+            }
+        },
+        browserify: {
             dist: {
+                options: {
+                    "transform": [
+                        [ "babelify", { "presets": ["es2015", "stage-1"] }]
+                    ]
+                },
                 files: {
-                    'dist/app.js': 'app/**/*.js'
+                    'dist/bundle.js': ['./app/**/*.js', '!./app/test/**/*.spec.js']
                 }
             }
         },
@@ -62,14 +69,16 @@ module.exports = function(grunt) {
     });
 
     require("load-grunt-tasks")(grunt);
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks("grunt-browserify");
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask("default", ["build"]);
-    grunt.registerTask("build", ["babel", "less", "copy:dist"]);
-    grunt.registerTask("test", ["babel", "mochaTest", "watch"]);
+    grunt.registerTask("build", ["clean", "browserify:dist", "less", "copy:dist"]);
+    grunt.registerTask("test", ["mochaTest", "watch"]);
     grunt.registerTask("serve", ["build", "connect:server", "watch"]);
 }

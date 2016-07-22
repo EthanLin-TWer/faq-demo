@@ -1,1 +1,0 @@
-{"version":3,"sources":["../app/app.js"],"names":[],"mappings":";;AAAA;;;;;;AAEA,QAAQ,MAAR,CAAe,QAAf,EAAyB,EAAzB,EACK,UADL,CACgB,eADhB","file":"app.js","sourcesContent":["import TabController from 'tab/tab-controller'\n\nangular.module('FAQApp', [])\n    .controller('tabController', TabController);"]}

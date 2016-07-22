@@ -10,6 +10,7 @@ Demo implementing a single faq page with data fetched from backend json provider
 * [ ] Bootstrap
 * [x] ES6
 * [x] Babel
+* [x] Browserify
 * [x] LESS
 * [x] Mocha
 * [x] Chai
