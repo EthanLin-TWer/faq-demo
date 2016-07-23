@@ -28,6 +28,7 @@ Demo implementing a single faq page with data fetched from backend json provider
 ## TODOLIST
 
 * [ ] Build front end UI
+* [ ] Use grunt-injector to inject css and js dependencies
 * [ ] Setup Spring Boot to return json
 * [ ] Design the simplest json schema for front-end use
 * [ ] Front end functionality
