@@ -1,20 +1,24 @@
 import { expect } from 'chai'
+import sinon from 'sinon'
 import TabController from '../../../tab/tab-controller.js'
+import CategoryService from '../../../tab/category-service.js'
 
 describe('tab controller', () => {
-    describe('when initialized', () => {
+
+    describe('when bootstrap...', () => {
         let tabController;
+        let categoryService;
 
         beforeEach(() => {
-            tabController = new TabController();
-        });
+            categoryService = new CategoryService();
+        })
 
-        it('should have a variable named first initialized', () => {
-            expect(tabController.first).to.equal('Angular up and running!')
-        });
-    });
+        it('should call service to get all available categories', () => {
+            const getCategoriesSpy = sinon.spy(categoryService, 'getCategories')
 
-    describe('when functioning...', () => {
+            tabController = new TabController(categoryService);
 
+            expect(getCategoriesSpy.calledOnce).to.be.true;
+        })
     })
 });

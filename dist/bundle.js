@@ -9,11 +9,43 @@ var _tabController = require('./tab/tab-controller');
 
 var _tabController2 = _interopRequireDefault(_tabController);
 
+var _categoryService = require('./tab/category-service');
+
+var _categoryService2 = _interopRequireDefault(_categoryService);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('FAQApp', []).controller('tabController', _tabController2.default);
+_angular2.default.module('FAQApp', []).controller('tabController', _tabController2.default).service('categoryService', _categoryService2.default);
 
-},{"./tab/tab-controller":2,"angular":4}],2:[function(require,module,exports){
+},{"./tab/category-service":2,"./tab/tab-controller":3,"angular":5}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var CategoryService = function () {
+    function CategoryService() {
+        _classCallCheck(this, CategoryService);
+    }
+
+    _createClass(CategoryService, [{
+        key: "getCategories",
+        value: function getCategories() {
+            return "";
+        }
+    }]);
+
+    return CategoryService;
+}();
+
+exports.default = CategoryService;
+
+},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -22,15 +54,18 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var TabController = function TabController() {
+var TabController = function TabController(categoryService) {
     _classCallCheck(this, TabController);
+
+    this.categoryService = categoryService;
+    this.categoryService.getCategories();
 
     this.first = 'Angular up and running!';
 };
 
 exports.default = TabController;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -31504,8 +31539,8 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":3}]},{},[1,2]);
+},{"./angular":4}]},{},[1,2,3]);
