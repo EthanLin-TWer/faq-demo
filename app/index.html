@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="FAQApp">
 <head>
     <meta charset="UTF-8">
     <title>FAQ Home Page</title>
@@ -10,8 +10,8 @@
     <script type="text/css" src="main.css"></script>
 </head>
 <body>
-    <section ng-controller="tabController">
-        {{ first }}
+    <section ng-controller="tabController as tab">
+        {{ tab.first }}
     </section>
 </body>
 </html>
