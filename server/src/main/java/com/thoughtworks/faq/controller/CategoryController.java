@@ -1,23 +1,26 @@
 package com.thoughtworks.faq.controller;
 
 import com.thoughtworks.faq.model.Category;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class CategoryController {
-    @RequestMapping("/categories")
-    public Map<String, List<Category>> getCategories(String brand) {
-        List<Category> categories = new ArrayList<Category>();
-        categories.add(Category.GENERIC);
-        categories.add(Category.HOME);
-        categories.add(Category.MOTOR);
+    @RequestMapping("/categories/{brand}")
+    public Map<String, List<Category>> getCategories(@PathVariable String brand) {
+        return Collections.singletonMap("categories", getCategoriesForBrand(brand));
+    }
 
-        return Collections.singletonMap("categories", categories);
+    private List<Category> getCategoriesForBrand(String brand) {
+        return CATEGORIES_MAP.get(brand);
+    }
+
+    private static final Map<String, List<Category>> CATEGORIES_MAP = new HashMap<>();
+
+    {
+        CATEGORIES_MAP.put("personal-insurance", new ArrayList<>(Arrays.asList(Category.GENERIC, Category.HOME, Category.MOTOR)));
     }
 }
