@@ -60,19 +60,21 @@ var TabController = function () {
     function TabController(categoryService) {
         _classCallCheck(this, TabController);
 
+        this.currentSelection = 'generic';
         this.categoryService = categoryService;
-        this.categoryService.getCategories();
 
-        this.first = 'Angular up and running!';
+        this.categoryService.getCategories();
     }
 
     _createClass(TabController, [{
         key: 'setCategoryAsSelected',
-        value: function setCategoryAsSelected(category) {}
+        value: function setCategoryAsSelected(category) {
+            this.currentSelection = category;
+        }
     }, {
         key: 'isCategorySelected',
         value: function isCategorySelected(category) {
-            return category === 'generic';
+            return category === this.currentSelection;
         }
     }]);
 
