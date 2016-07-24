@@ -8,4 +8,11 @@ export default class TabController {
         this.first = 'Angular up and running!'
     }
 
+    setCategoryAsSelected(category) {
+
+    }
+
+    isCategorySelected(category) {
+        return category === 'generic'
+    }
 }
