@@ -12,20 +12,20 @@
 <body>
     <section class="categories" ng-controller="tabController as tab">
         <li>
-            <a href="">Generic</a>
+            <a href="" ng-click="tab.setCategoryAsSelected('generic')">Generic</a>
         </li>
 
         <li>
-            <a href="">Home</a>
+            <a href="" ng-click="tab.setCategoryAsSelected('home')">Home</a>
         </li>
 
         <li>
-            <a href="">Motor</a>
+            <a href="" ng-click="tab.setCategoryAsSelected('motor')">Motor</a>
         </li>
 
-        <div class="category"></div>
-        <div class="category"></div>
-        <div class="category"></div>
+        <div class="category" ng-show="tab.isCategorySelected('generic')">Generic tab selected</div>
+        <div class="category" ng-show="tab.isCategorySelected('home')">Home tab selected</div>
+        <div class="category" ng-show="tab.isCategorySelected('motor')">Motor tab selected</div>
     </section>
 </body>
 </html>

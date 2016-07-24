@@ -10,7 +10,7 @@ describe('tab controller', () => {
         let tabController;
 
         beforeEach(() => {
-            categoryService = new CategoryService();
+            categoryService = new CategoryService()
             tabController = new TabController(categoryService)
         })
 
