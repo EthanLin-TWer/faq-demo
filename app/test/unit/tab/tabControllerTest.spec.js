@@ -18,7 +18,7 @@ describe('tab controller', () => {
             const getCategoriesSpy = sinon.spy(categoryService, 'getCategories')
             tabController = new TabController(categoryService)
 
-            expect(getCategoriesSpy.calledOnce).to.be.true
+            expect(getCategoriesSpy.calledWith('personal-insurance')).to.be.true
         })
 
         it('should return generic category selected when generic tab is clicked', () => {

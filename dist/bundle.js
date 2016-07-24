@@ -63,7 +63,7 @@ var TabController = function () {
         this.currentSelection = 'generic';
         this.categoryService = categoryService;
 
-        this.categoryService.getCategories();
+        this.categoryService.getCategories('personal-insurance');
     }
 
     _createClass(TabController, [{

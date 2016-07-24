@@ -4,7 +4,7 @@ export default class TabController {
         this.currentSelection = 'generic'
         this.categoryService = categoryService;
         
-        this.categoryService.getCategories();
+        this.categoryService.getCategories('personal-insurance');
     }
 
     setCategoryAsSelected(category) {
